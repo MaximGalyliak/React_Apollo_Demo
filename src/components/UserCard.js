@@ -35,9 +35,12 @@ const UserCard = () => {
           <Typography variant="body2" color="text.secondary">
             {currentUser.email}
           </Typography>
+          <Typography variant="body2" color="text.secondary">
+            {currentUser.phone}
+          </Typography>
         </CardContent>
         <CardActions>
-          <Button size="small">Edit Profile</Button>
+          <Button size="small">New Post</Button>
         </CardActions>
       </Card>
     )

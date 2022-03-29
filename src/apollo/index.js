@@ -1,5 +1,5 @@
 import { ApolloClient, InMemoryCache } from '@apollo/client'
-import { currentUserVar } from './reactive-vars'
+import { currentUserVar, selectedCommentsVar } from './reactive-vars'
 
 export const cache = new InMemoryCache({
   typePolicies: {
@@ -12,6 +12,17 @@ export const cache = new InMemoryCache({
           read() {
             //read function, in this case will return reactive variable value
             return currentUserVar()
+          }
+        }
+      }
+    },
+    Comment: {
+      fields: {
+        isSelected: {
+          read(_value, { readField }) {
+            const todoId = readField('id')
+            const isSelected = selectedCommentsVar().find((id) => id === todoId)
+            return isSelected
           }
         }
       }

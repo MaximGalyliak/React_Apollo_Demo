@@ -9,3 +9,9 @@ export const CREATE_USER = gql`
     }
   }
 `
+
+export const DELETE_SELECTED_COMMENT = gql`
+  mutation DeleteSelectedComments($id: ID!) {
+    deleteComment(id: $id)
+  }
+`

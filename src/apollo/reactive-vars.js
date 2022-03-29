@@ -7,3 +7,7 @@ import { ASSUMED_USER } from '../config'
  * and we set a new value by calling currentUserVar(newValue).
  */
 export const currentUserVar = makeVar({ ...ASSUMED_USER })
+
+export const selectedCommentsVar = makeVar([])
+
+export const changeThemeVar = makeVar(true)
