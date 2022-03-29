@@ -27,35 +27,21 @@ const EditUserDialog = ({ open, handleClose }) => {
         <DialogContentText>
           Here you can edit your profile information.
         </DialogContentText>
-        <TextField
-          autoFocus
-          margin="dense"
-          id="username"
-          label="Username"
-          fullWidth
-          variant="standard"
-          value={currentUser.username}
-          onChange={handleChange}
-        />
-        <TextField
-          margin="dense"
-          id="name"
-          label="Name"
-          fullWidth
-          variant="standard"
-          value={currentUser.name}
-          onChange={handleChange}
-        />
-        <TextField
-          margin="dense"
-          id="email"
-          label="Email Address"
-          type="email"
-          fullWidth
-          variant="standard"
-          value={currentUser.email}
-          onChange={handleChange}
-        />
+        {Object.keys(currentUser).map((key, i) => {
+          return (
+            <TextField
+              key={key}
+              autoFocus={i === 0 ? true : false}
+              margin="dense"
+              id={key}
+              label={key.toUpperCase()}
+              fullWidth
+              variant="standard"
+              value={currentUser[key]}
+              onChange={handleChange}
+            />
+          )
+        })}
       </DialogContent>
       <DialogActions>
         <Button onClick={handleClose}>Done</Button>

@@ -20,7 +20,9 @@ const Home = () => {
         <Box sx={{ display: 'flex' }}>
           <Divider orientation="vertical" flexItem />
           <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-            <Typography variant="h4">Recent Posts</Typography>
+            <Typography variant="h4" ml={2}>
+              Recent Posts
+            </Typography>
             <PostsList />
           </Box>
           <Divider orientation="vertical" flexItem />

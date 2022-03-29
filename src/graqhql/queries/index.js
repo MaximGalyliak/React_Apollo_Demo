@@ -50,3 +50,18 @@ export const GET_CURRENT_USER = gql`
     currentUser @client
   }
 `
+export const GET_COMMENTS_BY_POST_ID = gql`
+  query GetCommentsByPostId($id: ID!) {
+    post(id: $id) {
+      id
+      comments {
+        data {
+          body
+          id
+          email
+          isSelected @client
+        }
+      }
+    }
+  }
+`

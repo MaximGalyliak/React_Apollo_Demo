@@ -1,7 +1,14 @@
 import React from 'react'
+import { Link as RouterLink } from 'react-router-dom'
+import { useReactiveVar } from '@apollo/client'
+import { changeThemeVar } from '../apollo/reactive-vars'
+
 import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'
 import Button from '@mui/material/Button'
+import IconButton from '@mui/material/IconButton'
+import Stack from '@mui/material/Stack'
+import { DarkMode, LightMode } from '@mui/icons-material'
 import SettingsIcon from '@mui/icons-material/Settings'
 import grey from '@mui/material/colors/grey'
 
@@ -9,6 +16,8 @@ import EditUserDialog from './EditUserDialog'
 
 const PageWrapper = ({ children }) => {
   const [open, setOpen] = React.useState(false)
+
+  const useDarkTheme = useReactiveVar(changeThemeVar)
 
   const handleClickOpen = () => {
     setOpen(true)
@@ -21,22 +30,33 @@ const PageWrapper = ({ children }) => {
     <div>
       <Box
         sx={{
-          flexGrow: 1,
           width: '100%',
-          backgroundColor: grey[700],
+          backgroundColor: useDarkTheme ? grey[900] : grey[300],
           padding: '20px 10px',
           display: 'flex',
           justifyContent: 'space-between'
         }}
       >
-        <Typography variant="h4">TimeBurner.com</Typography>
-        <Button
-          variant="outlined"
-          onClick={handleClickOpen}
-          startIcon={<SettingsIcon />}
-        >
-          Edit Profile
+        <Button component={RouterLink} to="/" variant="text">
+          <Typography variant="h4">TimeBurner.com</Typography>
         </Button>
+        <Stack spacing={1} direction="row" alignItems="center">
+          <IconButton
+            aria-label="change-theme"
+            onClick={() => changeThemeVar(!useDarkTheme)}
+            size="large"
+            color="primary"
+          >
+            {useDarkTheme ? <LightMode /> : <DarkMode />}
+          </IconButton>
+          <Button
+            variant="outlined"
+            onClick={handleClickOpen}
+            startIcon={<SettingsIcon />}
+          >
+            Edit Profile
+          </Button>
+        </Stack>
       </Box>
       <Box sx={{ flexGrow: 1, maxWidth: 1280, margin: '20px auto' }}>
         {children}
