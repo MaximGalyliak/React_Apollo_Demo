@@ -14,7 +14,11 @@ import DialogTitle from '@mui/material/DialogTitle'
 const EditUserDialog = ({ open, handleClose }) => {
   // this hook reads reactive variable and automatically calls rerender on update
   const currentUser = useReactiveVar(currentUserVar)
-
+  /**
+   * update currentUseVar by passing in a new object that consist
+   * from previous value and modified key-value pair
+   * id of the text field is set from keys of currentUserVar
+   */
   const handleChange = (event) => {
     const { id, value } = event.target
     currentUserVar({ ...currentUser, [id]: value })

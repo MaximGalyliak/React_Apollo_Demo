@@ -45,11 +45,21 @@ export const GET_USER_BY_ID = gql`
     }
   }
 `
+/**
+ * @client directory tells Apollo that queried field is
+ * local only field. Apollo checks local type policies object,
+ * and if match found it will run read function to retrieve its
+ * value
+ */
 export const GET_CURRENT_USER = gql`
   query GetCurrentUser {
     currentUser @client
   }
 `
+/**
+ * local fields can exist on any type and can be queried
+ * along with fields from back end
+ */
 export const GET_COMMENTS_BY_POST_ID = gql`
   query GetCommentsByPostId($id: ID!) {
     post(id: $id) {

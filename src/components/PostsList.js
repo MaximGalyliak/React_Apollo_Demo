@@ -38,7 +38,7 @@ const PostsList = () => {
           >
             <ListItemText
               primary={post.title}
-              secondary={post.body.substring(0, 30).concat('...')}
+              secondary={post.body.substring(0, 40).concat('...')}
             />
           </ListItem>
         ))}
