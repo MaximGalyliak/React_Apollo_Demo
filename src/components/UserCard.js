@@ -12,6 +12,13 @@ import Button from '@mui/material/Button'
 import Typography from '@mui/material/Typography'
 
 const UserCard = () => {
+  /**
+   * since reactive variable is a part of cache local field currentUser
+   * on Query type we can read it with useQuery hook by passing
+   * graph query that utilize @client directive
+   * see src/graphql/queries/GET_CURRENT_USER
+   * any changes to reactive var will cause subscribed components to rerun
+   */
   const { data, loading, error } = useQuery(GET_CURRENT_USER)
 
   if (error) return <Alert severity="error">Could not get user</Alert>

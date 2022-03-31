@@ -16,7 +16,12 @@ import EditUserDialog from './EditUserDialog'
 
 const PageWrapper = ({ children }) => {
   const [open, setOpen] = React.useState(false)
-
+  /**
+   * useReactiveVar is a reusable hook that under the hood
+   * combines useState and useEffect to track changes to reactive variable
+   * and update the component.
+   * returns current value of changeThemeVar
+   */
   const useDarkTheme = useReactiveVar(changeThemeVar)
 
   const handleClickOpen = () => {
@@ -26,6 +31,13 @@ const PageWrapper = ({ children }) => {
   const handleClose = () => {
     setOpen(false)
   }
+  /**
+   * We set a new value of reactive var by calling changeThemeVar(newValue).
+   */
+  const changeTheme = () => {
+    changeThemeVar(!useDarkTheme)
+  }
+
   return (
     <div>
       <Box
@@ -43,7 +55,7 @@ const PageWrapper = ({ children }) => {
         <Stack spacing={1} direction="row" alignItems="center">
           <IconButton
             aria-label="change-theme"
-            onClick={() => changeThemeVar(!useDarkTheme)}
+            onClick={changeTheme}
             size="large"
             color="primary"
           >

@@ -11,6 +11,12 @@ import Home from './pages/home'
 import Post from './pages/post'
 
 const App = () => {
+  /**
+   * useReactiveVar is a reusable hook that under the hood
+   * combines useState and useEffect to track changes to variable
+   * and update the component.
+   * returns current value of changeThemeVar
+   */
   const useDarkTheme = useReactiveVar(changeThemeVar)
   return (
     <ThemeProvider theme={useDarkTheme ? darkTheme : lightTheme}>

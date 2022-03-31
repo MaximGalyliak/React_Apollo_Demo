@@ -1,70 +1,52 @@
-# Getting Started with Create React App
+# Apollo Client v3 demo
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Apollo is one of the most popular GraphQL libraries available today. With a release of V3 Apollo Client introduced even greater manageability of application state with Reactive variables and new InMemoryCache APIs.
 
-## Available Scripts
+This demo app is scoped to show mechanics of Apollo Client reactive variables and configurable policies for types and fields, and how to use it.
 
-In the project directory, you can run:
+## Definitions
 
-### `npm start`
+### Apollo Client
 
-Runs the app in the development mode.\
+Apollo Client is a comprehensive state management library for JavaScript. It enables you to use GraphQL to manage both local and remote data. Apollo Client is view-layer agnostic, so you can use it with React, Vue, Angular, or even vanilla JS.
+
+### Reactive variables
+
+Reactive variables are a useful mechanism for representing local state outside of the Apollo Client cache. Because they're separate from the cache, reactive variables can store data of any type and structure, and you can interact with them anywhere in your application without using GraphQL syntax.
+
+### Local-only fields and field policies
+
+This mechanism allows you to create your client schema. You can extend a server schema or add new fields.
+Then, you can define field policies that describe wherefrom data came from. You can use Apollo cache or local storage.
+The crucial advantage of this mechanism is using the same API as when you work with server schema.
+
+## Getting started
+
+Clone repository to local machine with `git clone [web_url|SSH-key]`;
+
+Run `npm i` to install node packages
+
+After installation complete run `npm start` which will start the app in the development mode.
+
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+After running the app and getting familiar with functionality, it is recommended to explore src/apollo/reactive-vars and src/apollo/index.js files and follow the documentation.
 
-### `npm test`
+## Demo app stack
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Build with [Create React App](https://github.com/facebook/create-react-app)
+- UI components from [React Material UI library](https://mui.com/)
+- [Apollo Client v3](https://www.apollographql.com/docs/)
+- [React router dom](https://github.com/remix-run/react-router/blob/main/docs/getting-started/tutorial.md)
 
-### `npm run build`
+## Additional Resources
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+[Configuring Type Policy Fields](https://www.apollographql.com/docs/react/caching/cache-configuration/#typepolicy-fields)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+[Customizing the behavior of cached fields](https://www.apollographql.com/docs/react/caching/cache-field-behavior/)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+[Managing local state](https://www.apollographql.com/docs/react/local-state/local-state-management/)
 
-### `npm run eject`
+[Reactive variables](https://www.apollographql.com/docs/react/local-state/reactive-variables/)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+[Front end bits - short and sweet reactive var article](https://rares.uk/apollo-reactive-vars/)
